@@ -1,5 +1,5 @@
 These are papers implemented from scratch to obtain a better understanding of how Neural Networks work. 
-The current, and also slightly ambitious order for implementing papers are: 
+The current, and also slightly ambitious list, in no specific order for implementing papers are: 
 
 1. Resnet
 2. Batch/Layer Normalization
