@@ -27,7 +27,7 @@
 - Furthremore, a normal distribution of mean zero and variance 1 ensures the issue with the signals for non-linear functions such as the sigmoid function.
 
 ### Mini-Batch Normalization
-- The paper normalizes the features independently instead of across all features by $\hat{x}^{k} = \frac{x^{k} - E[x^{k}]}{\sqrt{Var[x^{k}]}}​$, where $k$ represents the independent features.
+- The paper normalizes the features independently instead of across all features (so there is a statistic for each feature) by $\hat{x}^{k} = \frac{x^{k} - E[x^{k}]}{\sqrt{Var[x^{k}]}}​$, where $k$ represents the independent features.
 - Also note that because normalizing features can change the representations of the layers, the transformation has to be able to represent the identity transform (affine transform), which is accomplished through: $y^{(k)} = \gamma^{k}\hat{x}^{k} + \beta^{k}$.
 - What it means to represent the identity transform is from $y^{(k)} = \gamma^{k}\frac{x^{k} - E[x^{k}]}{\sqrt{Var[x^{k}]}} + \beta^{k}$, we can adjust both the parameters $\gamma^{k}$, $\beta^{k}$  to cancel out the $Var[x^{k}]$ part and the $- E[x^{k}]$ part such that $y^{k} = x^{k}$ in order to be able to recover the original activations before normalization if needed.
 - The new parameters $\gamma$ and $\beta$ are learned and not canceled out because it is outide of the layer as well.
