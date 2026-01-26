@@ -117,7 +117,7 @@ tensor([[[-0.3229, -0.7989, -0.8596,  0.2613],
 - $W_{i}^{V} \in \Reals^{d_{model} \times d_{V}}$
 
 - Note that for a single attention head, $Q \in \Reals^{len_{seq} \times d_{k}}$, $K \in \Reals^{len_{seq} \times d_{k}}$, $Q \in \Reals^{len_{seq} \times d_{v}}$; so $d_{k} = d_{model}$.
-- However, we are now using $h$ number of heads of $d_{k}$, where $h \times d_{k} = d_{model}$ for multi-headed attention, so $Q \in \Reals^{len_{seq} \times d_{model}}$, $K \in \Reals^{len_{seq} \times d_{model}}$, $Q \in \Reals^{len_{seq} \times d_{model}}$
+- However, we are now using $h$ number of heads of $d_{k}$, where $h \times d_{k} = d_{model}$ for multi-headed attention, so $Q \in \Reals^{len_{seq} \times d_{model}}$, $K \in \Reals^{len_{seq} \times d_{model}}$, $V \in \Reals^{len_{seq} \times d_{model}}$
 
 
 ```py
@@ -142,7 +142,7 @@ class MultiHeadedAttention(nn.Module):
         ]
 
         # Apply attention on all the projected vectors in batch.
-        x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout)
+        x, self.attn = attention(query, key, value)
 
         # Concat and return to dim: d_model
         x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k)
