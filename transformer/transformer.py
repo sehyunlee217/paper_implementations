@@ -312,78 +312,9 @@ def inference_test():
     print("Example Untrained Model Prediction:", ys)
 
 
-# def run_tests():
-#     for _ in range(10):
-#         inference_test()
+def run_tests():
+    for _ in range(10):
+        inference_test()
 
 
-# run_tests()
-
-
-# def attention(Q, K, V):
-#     d_k = Q.size(-1)  # last dimension of Q (size of vector)
-
-#     attn_scores = torch.matmul(Q, K.transpose(-1, -2)) / math.sqrt(
-#         d_k
-#     )  # this is the weights part
-
-#     attn_probs = attn_scores.softmax(dim=-1)  # want to take
-
-#     return torch.matmul(attn_probs, V), attn_probs  # final attention function output
-
-
-# # # --- SETUP DATA ---
-# batch_size = 1
-# seq_len = 5  # "Attention is really cool"
-# d_k = 8  # Each word is represented by a vector of size 4
-
-# # Randomly initialized Q, K, V (usually created via Linear layers)
-# Q = torch.randn(batch_size, seq_len, d_k)
-# K = torch.randn(batch_size, seq_len, d_k)
-# V = torch.randn(batch_size, seq_len, d_k)
-
-# # Run the function
-# output, weights = attention2(Q, K, V)
-
-# print(f"Query Shape:  {Q.shape}")
-# print(f"Output Shape: {output.shape}")
-# print(f"Weights Shape: {weights.shape}")
-
-# sent = ["Attention", "is", "cool"]
-# # Assume our tokenizer just a 3 word dictionary
-# tokenizer = {"Attention": 0, "is": 1, "cool": 2}
-# tokens = torch.tensor([tokenizer[word] for word in sent]).unsqueeze(
-#     dim=0
-# )  # add batch dim 1 at index 0
-# embedder = nn.Embedding(num_embeddings=len(tokenizer), embedding_dim=4)
-# embedded_sent = embedder(tokens)
-
-# d_k = 4
-# Q_linear = nn.Linear(4, d_k)
-# K_linear = nn.Linear(4, d_k)
-# V_linear = nn.Linear(4, d_k)
-
-# Q = Q_linear(embedded_sent)  # [1, 3, 4]
-# K = K_linear(embedded_sent)  # [1, 3, 4]
-# V = V_linear(embedded_sent)  # [1, 3, 4]
-
-
-# def attention2(Q, K, V):
-#     d_k = Q.size(-1)  # last dimension of Q (shape of hidden layer/embedding)
-
-#     attn_scores = torch.matmul(Q, K.transpose(-1, -2)) / math.sqrt(
-#         d_k
-#     )  # this is the weights part
-
-#     print(attn_scores)
-
-#     attn_probs = attn_scores.softmax(
-#         dim=-1
-#     )  # want to take softmax across embedding dim
-
-#     print(attn_probs)
-
-#     return torch.matmul(attn_probs, V)  # final attention function output
-
-
-# print(attention2(Q, K, V))
+run_tests()

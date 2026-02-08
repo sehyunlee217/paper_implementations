@@ -121,10 +121,6 @@ tensor([[[-0.3229, -0.7989, -0.8596,  0.2613],
 
 
 ```py
-def clones(module, N):
-    "Produce N identical layers."
-    return nn.ModuleList([copy.deepcopy(module) for _ in range(N)])
-
 class MultiHeadedAttention(nn.Module):
     def __init__(self, num_heads, d_model):
         super().__init__()
