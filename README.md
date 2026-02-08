@@ -1,5 +1,6 @@
-These are papers implemented from scratch to obtain a better understanding of how Neural Networks work. 
-The current, and also slightly ambitious list, in no specific order for implementing papers are: 
+- Hello, these are papers implemented from scratch to obtain a better understanding of how Neural Networks work. 
+- You can read the detailed postings on all of these @ https://www.shyun.dev
+- The current, and also slightly ambitious list, in no specific order for implementing papers are: 
 
 1. **Resnet** (Done on 2025-12-26!)
 2. **Batch Normalization** (Done on 2026-01-02!)
